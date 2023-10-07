@@ -17,7 +17,7 @@ services:
 
   owncloud:
     image: owncloud/server:latest
-    container_name: owncloud_server
+    container_name: owncloud-server
     restart: unless-stopped
     ports:
       - 8300:8080
@@ -47,7 +47,7 @@ services:
 
   mariadb-own:
     image: mariadb:latest
-    container_name: owncloud_mariadb
+    container_name: owncloud-mariadb
     restart: unless-stopped
     environment:
       - MYSQL_DATABASE: owncloud
@@ -65,7 +65,7 @@ services:
 
   redis-own:
     image: redis:latest
-    container_name: owncloud_redis
+    container_name: owncloud-redis
     restart: unless-stopped
     volumes:
       - /DATA/AppData/owncloud/redis:/data
