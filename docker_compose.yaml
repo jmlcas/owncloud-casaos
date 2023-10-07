@@ -20,7 +20,7 @@ services:
     container_name: owncloud_server
     restart: unless-stopped
     ports:
-      - 8500:8080
+      - 8300:8080
     depends_on:
       - mariadb-own
       - redis-own
