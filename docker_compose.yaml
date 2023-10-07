@@ -21,21 +21,21 @@ services:
     restart: unless-stopped
     ports:
       - 8300:8080
-    depends_on:
-      - mariadb-own
-      - redis-own
+#    depends_on:
+#      - mariadb-own
+#      - redis-own
     environment:
-#      - OWNCLOUD_DOMAIN=${OWNCLOUD_DOMAIN}
+#     - OWNCLOUD_TRUSTED_DOMAINS: 192.168.1.xx
       - OWNCLOUD_DB_TYPE=mysql
       - OWNCLOUD_DB_NAME=owncloud
       - OWNCLOUD_DB_USERNAME=owncloud
       - OWNCLOUD_DB_PASSWORD=owncloud
-      - OWNCLOUD_DB_HOST=mariadb
+      - OWNCLOUD_DB_HOST=mariadb-own
       - OWNCLOUD_ADMIN_USERNAME=user
       - OWNCLOUD_ADMIN_PASSWORD=p4ssw0rd
       - OWNCLOUD_MYSQL_UTF8MB4=true
       - OWNCLOUD_REDIS_ENABLED=true
-      - OWNCLOUD_REDIS_HOST=redis    
+      - OWNCLOUD_REDIS_HOST=redis-own    
     volumes:
       - /DATA/AppData/owncloud/files:/mnt/data
 
@@ -50,10 +50,10 @@ services:
     container_name: owncloud_mariadb
     restart: unless-stopped
     environment:
+      - MYSQL_DATABASE: owncloud
       - MYSQL_ROOT_PASSWORD=owncloud
       - MYSQL_USER=owncloud
       - MYSQL_PASSWORD=owncloud
-    command: ["--max-allowed-packet=128M", "--innodb-log-file-size=64M"]
     volumes:
       - /DATA/AppData/owncloud/db:/var/lib/mysql
   
@@ -67,7 +67,6 @@ services:
     image: redis:latest
     container_name: owncloud_redis
     restart: unless-stopped
-    command: ["--databases", "1"]
     volumes:
       - /DATA/AppData/owncloud/redis:/data
    
