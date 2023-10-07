@@ -21,9 +21,6 @@ services:
     restart: unless-stopped
     ports:
       - 8300:8080
-#    depends_on:
-#      - mariadb-own
-#      - redis-own
     environment:
 #     - OWNCLOUD_TRUSTED_DOMAINS: 192.168.1.xx
       - OWNCLOUD_DB_TYPE=mysql
