@@ -38,8 +38,6 @@ services:
       - OWNCLOUD_REDIS_HOST=redis    
     volumes:
       - /DATA/AppData/owncloud/files:/mnt/data
-    networks:
-      - owncloud  
 
 --------------------------------------------------------  
 
@@ -58,8 +56,6 @@ services:
     command: ["--max-allowed-packet=128M", "--innodb-log-file-size=64M"]
     volumes:
       - /DATA/AppData/owncloud/db:/var/lib/mysql
-    networks:
-      - owncloud
   
 --------------------------------------------------------
 
@@ -74,7 +70,4 @@ services:
     command: ["--databases", "1"]
     volumes:
       - /DATA/AppData/owncloud/redis:/data
-    networks:
-      - owncloud 
-
    
