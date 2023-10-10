@@ -22,7 +22,7 @@ services:
     ports:
       - 8300:8080
     environment:
-      - OWNCLOUD_TRUSTED_DOMAINS: 192.168.1.xx  #localhost
+      - OWNCLOUD_TRUSTED_DOMAINS=192.168.1.xx  # localhost | dominio
       - OWNCLOUD_DB_TYPE=mysql
       - OWNCLOUD_DB_NAME=owncloud
       - OWNCLOUD_DB_USERNAME=owncloud
