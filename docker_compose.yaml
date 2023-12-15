@@ -1,15 +1,33 @@
 # Owncloud - CasaOS
 
-# Icono para Owncloud
-https://icon.casaos.io/main/all/owncloud.png
-
 # Icono para MariaDB
 https://icon.casaos.io/main/all/mariadb.png
+
+# Icono para Owncloud
+https://icon.casaos.io/main/all/owncloud.png
 
 # Icono para Redis
 https://icon.casaos.io/main/all/redis.png
 
 -------------------------------------------------------- 
+
+version: "3.3"
+
+services: 
+
+  mariadb-own:
+    image: mariadb:latest
+    container_name: owncloud-mariadb
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=owncloud
+      - MYSQL_ROOT_PASSWORD=owncloud
+      - MYSQL_USER=owncloud
+      - MYSQL_PASSWORD=owncloud
+    volumes:
+      - /DATA/AppData/owncloud/db:/var/lib/mysql
+  
+--------------------------------------------------------
 
 version: "3.3"
 
@@ -37,24 +55,6 @@ services:
       - /DATA/AppData/owncloud/files:/mnt/data
 
 --------------------------------------------------------  
-
-version: "3.3"
-
-services: 
-
-  mariadb-own:
-    image: mariadb:latest
-    container_name: owncloud-mariadb
-    restart: unless-stopped
-    environment:
-      - MYSQL_DATABASE=owncloud
-      - MYSQL_ROOT_PASSWORD=owncloud
-      - MYSQL_USER=owncloud
-      - MYSQL_PASSWORD=owncloud
-    volumes:
-      - /DATA/AppData/owncloud/db:/var/lib/mysql
-  
---------------------------------------------------------
 
 version: "3.3"
 
