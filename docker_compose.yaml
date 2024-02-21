@@ -73,6 +73,4 @@ x-casaos:
     en_us: Provides additional features to CasaOS.
   architectures:
     - amd64
-
-
-   
+    - arm64   
