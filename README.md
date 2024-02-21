@@ -2,12 +2,11 @@
 
 Ver en "localhost:8300" or "192.168.1.xx:8300"
 
-### NOTA IMPORTANTE - 
+Usuario : User
 
-Cambios sobre lo dicho y visto en el vídeo:
+Password: p4ssw0rd
 
-Copiar, pegar y listo-
+Ver vídeo:  
 
-
-En espera de hacer vídeo.
+[![Alt text](https://img.youtube.com/vi/z0wnO3qV_YU/0.jpg)](https://www.youtube.com/watch?v=z0wnO3qV_YU)
 
